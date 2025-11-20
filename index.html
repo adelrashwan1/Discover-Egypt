@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Egypt - Land of Pharaohs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c19a53;
+            --secondary: #1a5276;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --sand: #e6d2aa;
+            --accent: #8b4513;
+            --gold: #d4af37;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(193, 154, 83, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 82, 118, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            margin: 20px auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 82, 118, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(26, 82, 118, 0.98);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1539650116574-75c0c6d73f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--light));
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Ancient Egypt Section */
+        .ancient-egypt {
+            background-color: white;
+            position: relative;
+        }
+
+        .ancient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .ancient-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .ancient-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .ancient-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ancient-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .ancient-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .ancient-card:hover .ancient-img img {
+            transform: scale(1.1);
+        }
+
+        .ancient-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .ancient-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Modern Projects Section */
+        .modern-projects {
+            background-color: var(--sand);
+            position: relative;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .project-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Natural Places Section */
+        .natural-places {
+            background-color: white;
+            position: relative;
+        }
+
+        .natural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .natural-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .natural-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .natural-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .natural-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .natural-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .natural-card:hover .natural-img img {
+            transform: scale(1.1);
+        }
+
+        .natural-content {
+            padding: 25px;
+        }
+
+        .natural-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Egyptian Food Section */
+        .egyptian-food {
+            background-color: var(--sand);
+            position: relative;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .food-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .food-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .food-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .food-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .food-card:hover .food-img img {
+            transform: scale(1.1);
+        }
+
+        .food-content {
+            padding: 25px;
+        }
+
+        .food-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--secondary), #0e3a5a);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--gold));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 16px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--secondary);
+                text-align: center;
+                transition: left 0.3s ease;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><i class="fas fa-monument"></i>Discover Egypt</a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#ancient">Ancient Egypt</a></li>
+                    <li><a href="#projects">Modern Projects</a></li>
+                    <li><a href="#natural">Natural Places</a></li>
+                    <li><a href="#food">Egyptian Food</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover the Wonders of Egypt</h1>
+                <p>Journey through time and explore the land of pharaohs, pyramids, and timeless treasures where ancient history meets modern innovation.</p>
+                <a href="#ancient" class="btn">Explore Egypt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ancient Egypt Section -->
+    <section class="ancient-egypt" id="ancient">
+        <div class="container">
+            <h2 class="section-title">Ancient Egypt</h2>
+            <div class="ancient-grid">
+                <div class="ancient-card">
+                    <div class="ancient-img">
+                        <img src="https://cdn.britannica.com/39/155939-050-A709B5D7/Pyramids-Giza-Cairo-Egypt.jpg" alt="Pyramids of Giza">
+                    </div>
+                    <div class="ancient-content">
+                        <h3>The Great Pyramids</h3>
+                        <p>The last surviving wonder of the ancient world, the Pyramids of Giza have stood for over 4,500 years as a testament to Egyptian engineering.</p>
+                        <p>Built as tombs for pharaohs, these structures align perfectly with celestial bodies and demonstrate advanced mathematical knowledge.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ancient-card">
+                    <div class="ancient-img">
+                        <img src="https://exploreluxor.org/wp-content/uploads/2021/09/50914352857_a622ccce99_k.jpg" alt="Luxor Temple">
+                    </div>
+                    <div class="ancient-content">
+                        <h3>Luxor Temple</h3>
+                        <p>Once known as Thebes, Luxor is often called the world's greatest open-air museum with its stunning temples and monuments.</p>
+                        <p>The temple complex was dedicated to the Theban Triad of Amun, Mut, and Chons and was the center of the Opet Festival.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ancient-card">
+                    <div class="ancient-img">
+                        <img src="https://th.bing.com/th/id/R.fd18d5fffd476907b503d7338e2e6dd9?rik=I%2bwrVD%2bxw6Vu9w&riu=http%3a%2f%2ffoundtheworld.com%2fwp-content%2fuploads%2f2016%2f03%2fAbu-Simbel-Temple-8.jpg&ehk=ukECcSz6nzaBS2meHpVP7hPoL6rcxtRrfnH%2fAdaaZf0%3d&risl=&pid=ImgRaw&r=0" alt="Abu Simbel">
+                    </div>
+                    <div class="ancient-content">
+                        <h3>Abu Simbel Temples</h3>
+                        <p>The twin temples of Abu Simbel were carved out of the mountainside during the reign of Pharaoh Ramesses II in the 13th century BCE.</p>
+                        <p>These magnificent structures were relocated in the 1960s to avoid being submerged during the creation of Lake Nasser.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Projects Section -->
+    <section class="modern-projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Modern Egyptian Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://dlleni.com/wp-content/uploads/2024/12/New-Administrative-Capital-1.webp" alt="New Administrative Capital">
+                    </div>
+                    <div class="project-content">
+                        <h3>New Administrative Capital</h3>
+                        <p>Egypt's new capital city is one of the largest ongoing development projects, designed to alleviate congestion in Cairo.</p>
+                        <p>The smart city will feature government districts, business centers, and residential areas with modern infrastructure.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://cdn.britannica.com/73/175673-050-B8E544E8/Ships-Suez-Canal-Egypt-world-shipping-lanes.jpg" alt="Suez Canal Expansion">
+                    </div>
+                    <div class="project-content">
+                        <h3>Suez Canal Expansion</h3>
+                        <p>The expansion of the Suez Canal has doubled its capacity, allowing more ships to pass through this vital global trade route.</p>
+                        <p>This mega-project included digging a new 35-kilometer channel and deepening and widening existing sections.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://ftnnews.com/wp-content/uploads/2025/03/grand-egyptian-museum-ramses-ii-statue.webp" alt="Grand Egyptian Museum">
+                    </div>
+                    <div class="project-content">
+                        <h3>Grand Egyptian Museum</h3>
+                        <p>Set to be the world's largest archaeological museum, the GEM will house an extensive collection of ancient Egyptian artifacts.</p>
+                        <p>Located near the Giza pyramids, it will showcase the complete Tutankhamun collection for the first time.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Places Section -->
+    <section class="natural-places" id="natural">
+        <div class="container">
+            <h2 class="section-title">Natural Wonders of Egypt</h2>
+            <div class="natural-grid">
+                <div class="natural-card">
+                    <div class="natural-img">
+                        <img src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1920,f_auto/A-rexfeatures_843356a_f97hsm.jpg" alt="Nile River">
+                    </div>
+                    <div class="natural-content">
+                        <h3>The Nile River</h3>
+                        <p>The world's longest river, flowing through Egypt and creating a fertile green valley through the desert.</p>
+                        <p>For millennia, the Nile's annual flooding deposited rich silt that made agriculture possible in this arid region.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="natural-card">
+                    <div class="natural-img">
+                        <img src="https://facts.net/wp-content/uploads/2024/12/50-facts-about-red-sea-1733394289.jpg" alt="Red Sea">
+                    </div>
+                    <div class="natural-content">
+                        <h3>Red Sea Coral Reefs</h3>
+                        <p>Home to some of the world's most spectacular coral reefs and marine biodiversity.</p>
+                        <p>The clear waters and vibrant marine life make this a premier destination for diving and snorkeling enthusiasts.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="natural-card">
+                    <div class="natural-img">
+                        <img src="https://www.inside-egypt.com/img/thumbs/w1200h800q85/news/48ad90f964fde5c40c45.jpeg" alt="White Desert">
+                    </div>
+                    <div class="natural-content">
+                        <h3>White Desert</h3>
+                        <p>A surreal landscape of white chalk rock formations shaped by wind erosion over centuries.</p>
+                        <p>Located in the Farafra depression, this unique natural wonder features mushroom-shaped rocks and stunning geological formations.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Egyptian Food Section -->
+    <section class="egyptian-food" id="food">
+        <div class="container">
+            <h2 class="section-title">Egyptian Cuisine</h2>
+            <div class="food-grid">
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://silkroadrecipes.com/wp-content/uploads/2021/06/Egyptian-Koshari-square.jpg" alt="Koshari">
+                    </div>
+                    <div class="food-content">
+                        <h3>Koshari</h3>
+                        <p>Considered Egypt's national dish, koshari is a delicious vegetarian meal made from rice, lentils, chickpeas, and pasta.</p>
+                        <p>Topped with a spicy tomato sauce and crispy fried onions, it's a flavorful and satisfying street food enjoyed by all Egyptians.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://assets.epicurious.com/photos/57b33744fd214db6472a3143/2:1/w_1260%2Ch_630/ful-medames.jpg" alt="Ful Medames">
+                    </div>
+                    <div class="food-content">
+                        <h3>Ful Medames</h3>
+                        <p>A staple breakfast dish made from fava beans cooked slowly and seasoned with garlic, lemon juice, and olive oil.</p>
+                        <p>Typically served with pita bread, vegetables, and hard-boiled eggs, it's a nutritious start to the day enjoyed across Egypt.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <div class="food-img">
+                        <img src="https://i0.wp.com/eyesclosedcooking.com/wp-content/uploads/2023/01/Egyptian_Molokhia_1.jpg?fit=1024%2C682&ssl=1" alt="Molokhia">
+                    </div>
+                    <div class="food-content">
+                        <h3>Molokhia</h3>
+                        <p>A traditional Egyptian soup made from the leaves of the jute plant, cooked with garlic and coriander.</p>
+                        <p>This nutritious green soup is typically served with rice or bread and sometimes accompanied by rabbit or chicken.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Discover Egypt</h3>
+                    <p>Your gateway to exploring the ancient wonders and modern marvels of Egypt. Experience the magic of the Nile, pyramids, and vibrant culture.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="#ancient"><i class="fas fa-monument"></i>Ancient Egypt</a></li>
+                        <li><a href="#projects"><i class="fas fa-building"></i>Modern Projects</a></li>
+                        <li><a href="#natural"><i class="fas fa-mountain"></i>Natural Places</a></li>
+                        <li><a href="#food"><i class="fas fa-utensils"></i>Egyptian Food</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i>123 Nile Street, Cairo</li>
+                        <li><i class="fas fa-phone"></i>+20 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i>info@discoveregypt.com</li>
+                        <li><i class="fas fa-clock"></i>Mon - Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Discover Egypt. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> for Egypt</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Image fallback handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    console.log('Image failed to load:', this.src);
+                    // You could set a placeholder image here if needed
+                    // this.src = 'placeholder.jpg';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
