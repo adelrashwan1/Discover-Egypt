@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Islamic & Coptic Civilization</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/isl&cop.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="#NEWS">NEWS</a>
+    <a href="#HOTEL">HOTEL</a>
+    <a href="#">SOME STIPS</a>
+    <a href="#">CONTACT US</a>
+    <form>
+        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+        <button onclick="setLanguage('en')" id="btn-en">English</button>
+        <input class="search" type="text" placeholder="Search">
+    </form>
+  </nav>
+  <div class="container">
+    <aside class="sidebar">
+        <div class="logo" 
+             data-ar="معلومات عامة" 
+             data-en="GENERAL INFO">
+        </div>
+
+        <div class="info">
+            <p>
+                <strong data-ar="العصر الإسلامي" data-en="Islamic Era"></strong><br>
+                <span data-ar="من القرن السابع الميلادي" data-en="From 7th century AD"></span>
+            </p>
+
+            <p>
+                <strong data-ar="العصر القبطي" data-en="Coptic Era"></strong><br>
+                <span data-ar="من القرن الأول الميلادي" data-en="From 1st century AD"></span>
+            </p>
+
+            <p>
+                <strong data-ar="أهم المعالم" data-en="Top Landmarks"></strong><br>
+                <span data-ar="جامع الأزهر" data-en="Al-Azhar Mosque"></span><br>
+                <span data-ar="دير سانت كاترين" data-en="Saint Catherine Monastery"></span>
+            </p>
+
+            <p>
+                <strong data-ar="اللغة" data-en="Language"></strong><br>
+                <span data-ar="العربية، القبطية" data-en="Arabic, Coptic"></span>
+            </p>
+        </div>
+    </aside>
+
+
+    <main class="content">
+
+        <h1 
+            data-ar="الحضارة الإسلامية والقبطية" 
+            data-en="ISLAMIC & COPTIC CIVILIZATION">
+        </h1>
+
+        <p 
+            data-ar="تتميز الحضارتان الإسلامية والقبطية بتراث ثقافي وفني غني يظهر في العمارة والزخارف والموسيقى والفنون البصرية."
+            data-en="Islamic and Coptic civilizations are distinguished by a rich cultural and artistic heritage, evident in architecture, decorations, music and visual arts.">
+        </p>
+
+        <div class="images">
+            <a href="islamic.html" style="background-image: url('image/islamic.jpg');" data-title="ISLAMIC">
+                <button class="learn-btn" 
+                        data-ar="اقرأ المزيد" 
+                        data-en="Learn More">
+                </button>
+            </a>
+
+            <a href="coptic.html" style="background-image: url('image/coptic.jpg');" data-title="COPTIC">
+                <button class="learn-btn"
+                        data-ar="اقرأ المزيد"
+                        data-en="Learn More">
+                </button>
+            </a>
+        </div>
+
+    </main>
+</div>
+  <script src="script/script.js" async defer></script>
+</body>
+
+</html>
