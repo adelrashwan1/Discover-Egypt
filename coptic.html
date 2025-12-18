@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ancient Egypt</title>
+  <title>coptic</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,17 +12,29 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="#Temple">TEMPLE</a>
-    <a href="#Cemeteries">CEMETERIES</a>
-    <a href="#Pyramids">PYRAMIDS</a>
-    <a href="#Museums">MUSEUM</a>
-    <form>
-        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
-        <button onclick="setLanguage('en')" id="btn-en">English</button>
-        <input class="search" type="text" placeholder="Search">
-    </form>
-  </nav>
+            <div class="nav-brand"><img src="image/logo.jpeg" alt="logo"></div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="#Churches">Churches</a>
+            <a href="#Monasteries">Monasteries</a>
+            <a href="#Museums">Museums</a>
+            <a href="#Influential Coptic figures">Influential</a>
+            
+            <div class="nav-form">
+                <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en">English</button>
+                <input class="search" type="text" placeholder="Search">
+                <a href="#" class="register-btn">Register</a>
+            </div>
+        </div>
+    </nav>
   <div class="information">
     <h1
     data-ar="✨ نبذة عن الآثار المصرية"
@@ -215,8 +227,8 @@ This civilization excelled in precise construction, artistic depth, and the deve
         </div>
     </section>
 </div>
-<div class="news" id="monasteries">
-<H1>monasteries</H1>
+<div class="news" id="Monasteries">
+<H1>Monasteries</H1>
 </div>
 <div class="Temple">
   <section class="ancient-egypt" id="ancient">

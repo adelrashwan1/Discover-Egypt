@@ -12,17 +12,29 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="#Temple">TEMPLE</a>
-    <a href="#Cemeteries">CEMETERIES</a>
-    <a href="#Pyramids">PYRAMIDS</a>
-    <a href="#Museums">MUSEUM</a>
-    <form>
-        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
-        <button onclick="setLanguage('en')" id="btn-en">English</button>
-        <input class="search" type="text" placeholder="Search">
-    </form>
-  </nav>
+            <div class="nav-brand"><img src="image/logo.jpeg" alt="logo"></div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">HOME</a>
+            <a href="#TEMPLATES">Templates</a>
+            <a href="#Cemeteries">Cemeteries</a>
+            <a href="#Pyramids">Pyramids</a>
+            <a href="#Museums">Museums</a>
+            
+            <div class="nav-form">
+                <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en">English</button>
+                <input class="search" type="text" placeholder="Search">
+                <a href="#" class="register-btn">Register</a>
+            </div>
+        </div>
+    </nav>
   <div class="information">
     <h1
     data-ar="✨ نبذة عن الآثار المصرية"
@@ -37,7 +49,7 @@
 This civilization excelled in precise construction, artistic depth, and the development of sciences such as astronomy, mathematics, and medicine. Its monuments continue to inspire researchers and travelers from around the world. Today, these historical treasures still tell the story of the pharaohs, their rituals, and their daily lives, connecting the past with the present in a unique and captivating way."
     ></p>
   </div>
-<div class="news" id="Temple">
+<div class="news" id="TEMPLATES">
 <H1>TEMPLATES</H1>
 </div>
   <div class="Temple">

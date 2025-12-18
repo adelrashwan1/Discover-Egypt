@@ -12,17 +12,29 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="#NEWS">NEWS</a>
-    <a href="#HOTEL">HOTEL</a>
-    <a href="#">SOME STIPS</a>
-    <a href="#">CONTACT US</a>
-    <form>
-        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
-        <button onclick="setLanguage('en')" id="btn-en">English</button>
-        <input class="search" type="text" placeholder="Search">
-    </form>
-  </nav>
+            <div class="nav-brand"><img src="image/logo.jpeg" alt="logo"></div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="islamic.html">Islamic</a>
+            <a href="coptic.html">Coptic</a>
+            <a href="egyptian history.html">Egyptian</a>
+            <a href="modern project.html">Modern</a>
+            
+            <div class="nav-form">
+                <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en">English</button>
+                <input class="search" type="text" placeholder="Search">
+                <a href="#" class="register-btn">Register</a>
+            </div>
+        </div>
+    </nav>
   <div class="container">
     <aside class="sidebar">
         <div class="logo" 

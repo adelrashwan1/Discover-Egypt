@@ -12,17 +12,29 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="#Temple">TEMPLE</a>
-    <a href="#HOTEL">HOTEL</a>
-    <a href="#">SOME STIPS</a>
-    <a href="#">CONTACT US</a>
-    <form>
-        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
-        <button onclick="setLanguage('en')" id="btn-en">English</button>
-        <input class="search" type="text" placeholder="Search">
-    </form>
-  </nav>
+            <div class="nav-brand"><img src="image/logo.jpeg" alt="logo"></div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">HOME</a>
+            <a href="#NEWS">ABOUT</a>
+            <a href="#OTHER">OTHER</a>
+            <a href="#SOME STEPS">SOME STEPS</a>
+            <a href="#contact us">CONTACT US</a>
+            
+            <div class="nav-form">
+                <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en">English</button>
+                <input class="search" type="text" placeholder="Search">
+                <a href="#" class="register-btn">Register</a>
+            </div>
+        </div>
+    </nav>
   <div class="information">
        <h1
     data-ar="✨ نبذة عن الآثار المصريةالاسلاميه"

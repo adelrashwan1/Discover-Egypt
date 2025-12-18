@@ -10,23 +10,103 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     </head>
+    <!-- Chat Button -->
+<div id="chat-btn" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box -->
+<div id="chat-box">
+    <iframe
+        src="https://www.chatbase.co/chatbot-iframe/NC91cEj3dyD1-3CpwHjsM"
+        frameborder="0">
+    </iframe>
+</div>
+
+<style>
+#chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #2563eb;
+    color: white;
+    font-size: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 380px;
+    height: 550px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 9999;
+    display: none;
+}
+
+#chat-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 📱 موبايل */
+@media (max-width: 600px) {
+    #chat-box {
+        width: 95%;
+        height: 90%;
+        right: 2.5%;
+        bottom: 80px;
+    }
+}
+</style>
+<script>
+function toggleChat() {
+    const chatBox = document.getElementById("chat-box");
+    chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
+}
+</script>
+
+
+
 <body>
   <div class="front" id="front">
 
   <!-- Navigation -->
   <nav>
-    <a href="#front">HOME</a>
-    <a href="#NEWS">ABOUT</a>
-    <a href="#OTHER">OTHER</a>
-    <a href="#SOME STEPS">SOME STEPS</a>
-    <a href="#contact us">CONTACT US</a>
-    <form>
-        <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
-        <button onclick="setLanguage('en')" id="btn-en">English</button>
-        <input class="search" type="text" placeholder="Search">
-        <a href="#" class="register-btn" >Register</a>
-    </form>
-  </nav>
+            <div class="nav-brand"><img src="image/logo.jpeg" alt="logo"></div>
+        
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="#front">HOME</a>
+            <a href="#NEWS">ABOUT</a>
+            <a href="#OTHER">OTHER</a>
+            <a href="#SOME STEPS">SOME STEPS</a>
+            <a href="#contact us">CONTACT US</a>
+            
+            <div class="nav-form">
+                <button onclick="setLanguage('ar')" id="btn-ar">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en">English</button>
+                <input class="search" type="text" placeholder="Search">
+                <a href="#" class="register-btn">Register</a>
+            </div>
+        </div>
+    </nav>
   <div class="login-popup" id="loginPopup">
   <div class="login-box">
     <span class="close-btn" id="closeLogin">&times;</span>
