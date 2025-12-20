@@ -804,6 +804,11 @@ footer::before {
             flex-direction: column;
 }
 
+.front {
+  
+  background: #EFE7D2;;
+  
+}
 
 .write img {
     width: 100%;

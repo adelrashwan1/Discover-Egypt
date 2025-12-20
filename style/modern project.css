@@ -703,8 +703,17 @@ footer::before {
                 padding: 10px;
                 font-size: 14px;
             }
+            .ancient-card {
+                width: 300px;
+                margin-left:-20px ;
+            }
         }
-
+@media (max-width: 386px) {
+            .ancient-card {
+                width: 300px;
+                margin-left:-30px ;
+            }
+         }
         /* Demo content */
         .content {
             padding: 20px;
