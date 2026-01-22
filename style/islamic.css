@@ -273,32 +273,39 @@ nav button:hover {
     margin-bottom: 40px;
     padding: 0 20px;
 }
-marquee {
-  background: linear-gradient(90deg, #1e1e1e, #2b2b2b);
-  padding: 12px 0;
-  border-top: 2px solid #c9a24d;
-  border-bottom: 2px solid #c9a24d;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-}
+  marquee {
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    padding: 12px 0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
 
-marquee span {
-  display: inline-block;
-  margin: 0 40px;
-  padding: 8px 16px;
-  background: #111;
-  color: #f5f5f5;
-  border-radius: 20px;
-  font-size: 15px;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-marquee span:hover {
-  background: #c9a24d;
-  color: #111;
-  transform: scale(1.08);
-  box-shadow: 0 0 10px rgba(201, 162, 77, 0.6);
-}
+  marquee span {
+    display: inline-block;
+    margin: 0 30px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    white-space: nowrap;
+    cursor: default;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  marquee span:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+
+  /* Optional: Arabic direction handling */
+  marquee span[data-ar] {
+    direction: rtl;
+    text-align: right;
+  }
+
+
+
 .news{
     text-align: center;
     color: #1A4F8B;
